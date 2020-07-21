@@ -21,7 +21,8 @@ jobs:
         chmod -R 777 ./IBM_Cloud_CLI/
     - name: Login IBM Cloud
       env:
-        IBM_ACCOUNT: ${{ secrets.IBM_ACCOUNT }}
+        IBM_ACCOUNT: zhenxcheng@qq.com
+        key:  qq123456QQ
         REGION_NUM: ${{ secrets.REGION_NUM }}
       run: |
         ./IBM_Cloud_CLI/ibmcloud login <<EOF
@@ -31,13 +32,13 @@ jobs:
         EOF
     - name: Target IBM Cloud
       env:
-        RESOURSE_ID: ${{ secrets.RESOURSE_ID }}
+        RESOURSE_ID: 43827fe3d95c487d9e291e591ffe28ff
       run: |
         ./IBM_Cloud_CLI/ibmcloud target -g "$RESOURSE_ID"
         ./IBM_Cloud_CLI/ibmcloud target --cf
         ./IBM_Cloud_CLI/ibmcloud cf install
     - name: Restart IBM Cloud
       env:
-        IBM_APP_NAME: ${{ secrets.IBM_APP_NAME }}
+        IBM_APP_NAME: endingya
       run: |
         ./IBM_Cloud_CLI/ibmcloud cf restart "$IBM_APP_NAME"
