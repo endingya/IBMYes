@@ -21,7 +21,7 @@ jobs:
         chmod -R 777 ./IBM_Cloud_CLI/
     - name: Login IBM Cloud
       env:
-        IBM_ACCOUNT: zhenxcheng@qq.com  qq123456QQ
+        IBM_ACCOUNT: ${{ secrets.ENDINGYA }}
         REGION_NUM: 7
       run: |
         ./IBM_Cloud_CLI/ibmcloud login <<EOF
